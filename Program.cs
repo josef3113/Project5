@@ -11,7 +11,7 @@ namespace Project5
 
 
         public static void Main()
-        {
+        { 
             int size = 6;
             char[,] myBoard = CreatBoard(size);
             PrintBoardDamka(myBoard, size);
