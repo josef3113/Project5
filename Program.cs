@@ -53,7 +53,7 @@ namespace Project5
                 Console.WriteLine("|"); 
                 signRow++;
 
-            }
+            }  
 
         }
 
