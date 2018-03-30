@@ -12,7 +12,7 @@ namespace Project5
 
         public static void Main()
         { 
-            int size = 6;
+            int size = 10;
             char[,] myBoard = CreatBoard(size);
             PrintBoardDamka(myBoard, size);
 
@@ -36,16 +36,24 @@ namespace Project5
 
         public static void PrintBoardDamka(char[,] i_BoardToPrint, int i_Size)
         {
-            char signRow = 'a', signCol = 'A';
+            StringBuilder lineBuffer = new StringBuilder(5*i_Size);
+            lineBuffer.Append("==");
             for (int i = 0; i < i_Size; i++)
             {
-                Console.Write("  "+signCol+"  ");
+                lineBuffer.Append("====");
+            }
+
+            char signRow = 'a', signCol = 'A';
+            Console.Write(" ");
+            for (int i = 0; i < i_Size; i++)
+            {
+                Console.Write("  "+signCol+" ");
                 signCol++;
             }
             Console.WriteLine();
             for (int i = 0; i < i_Size; i++)
             {
-                Console.Write("========={0}{1}", Environment.NewLine, signRow);
+                Console.Write("{0}{1}{2}",lineBuffer, Environment.NewLine, signRow);
                 for (int j = 0; j < i_Size; j++)
                 {
                     Console.Write("| " + i_BoardToPrint[i, j]+ " ");
