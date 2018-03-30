@@ -21,13 +21,24 @@ namespace Project5
         public static char[,] CreatBoard(int i_Size = 3)
         {
             char[,] boardOfGame = new char[i_Size, i_Size];
+            bool rowEven = true;
 
-            for (int i = 0; i < i_Size; i++)
+            for (int i = 0; i < (i_Size - 2) / 2 ; i++)
             {
-                for (int j = 0; j < i_Size; j++)
+                for (int j = 0; j < i_Size; j += 2)
                 {
-                  //  boardOfGame[i, j] = '1';
+                    if(rowEven)
+                    {
+                        boardOfGame[i, j + 1] = 'o';
+                        boardOfGame[(i_Size - 1) - i, j] = 'x';
+                    }
+                    else
+                    {
+                        boardOfGame[i, j] = 'o';
+                        boardOfGame[(i_Size - 1) - i, j+1] = 'x';
+                    }  
                 }
+                rowEven = !rowEven;
             }
 
             return boardOfGame;
