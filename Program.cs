@@ -24,11 +24,11 @@ namespace Project5
             //currentGame['B', 'e'] = 'x';
             Console.WriteLine("{0}{0}after changes:{0}{0}",Environment.NewLine);
 
-            currentGame.PrintBoardDamka(); // print board after changes 
+            currentGame.PrintBoardDamka(); //  print board after changes 
 
             //Console.WriteLine(currentGame['H','e']);
             //Console.WriteLine(currentGame.m_BoardOfGame[7,4]);
-
+            Console.ReadLine();
 
 
         }
