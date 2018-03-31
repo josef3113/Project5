@@ -15,8 +15,13 @@ namespace Project5
         {
             DamkaGame currentGame = new DamkaGame(8);
             currentGame.PrintBoardDamka();
-            currentGame['G', 'f'] = ' ';   //   player move white alfabetic sign
-            currentGame['H', 'e'] = 'x';
+            Console.WriteLine("insert your active");
+            string active = Console.ReadLine();
+            currentGame.Active(active);
+            //currentGame['G', 'f'] = ' ';   //   player move white alfabetic sign
+            //currentGame['H', 'e'] = 'x';
+            //currentGame['A', 'f'] = ' ';
+            //currentGame['B', 'e'] = 'x';
             Console.WriteLine("{0}{0}after changes:{0}{0}",Environment.NewLine);
 
             currentGame.PrintBoardDamka(); // print board after changes 

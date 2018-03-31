@@ -75,17 +75,36 @@ namespace Project5
 
         }
 
+        //activ
+        public bool Active(string i_Active)
+        {   // must be one exit point //fix that//
+            if(IsLegalActive(i_Active))
+            {
+                this[i_Active[3], i_Active[4]] = this[i_Active[0], i_Active[1]];
+                this[i_Active[0], i_Active[1]] = ' ';
+                return true;// not cry
+            }
+            return false;
+        }
+
+        // todo
+        public bool IsLegalActive(string i_Active)
+        {
+            return true;
+        }
         // indexr that do A,f like 1,6
-        public char this[char i_Row, char i_Col]
+
+        public char this[char i_Row, char i_Col]  // think about this !!
         {
             get
             {
-                return m_BoardOfGame[ i_Col - 'a', i_Row - 'A'];
+                return m_BoardOfGame[i_Col - 'a', i_Row - 'A'];
             }
             set
             {
-                m_BoardOfGame[ i_Col - 'a', i_Row - 'A'] = value;
+                m_BoardOfGame[i_Col - 'a', i_Row - 'A'] = value;
             }
         }
+
     }
 }
