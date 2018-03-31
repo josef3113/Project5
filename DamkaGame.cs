@@ -45,7 +45,7 @@ namespace Project5
         // not be static becous is print Board of specific item !!
         public  void PrintBoardDamka()
         {
-            Ex02.ConsoleUtils.Screen.Clear();
+           // Ex02.ConsoleUtils.Screen.Clear();
             StringBuilder lineBuffer = new StringBuilder(5 * m_SizeOfBoardGame);
             lineBuffer.Append("==");
             for (int i = 0; i < m_SizeOfBoardGame; i++)
