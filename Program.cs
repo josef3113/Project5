@@ -16,8 +16,8 @@ namespace Project5
             DamkaGame currentGame = new DamkaGame(8);
             currentGame.PrintBoardDamka();
             Console.WriteLine("insert your active");
-            string active = Console.ReadLine();
-            currentGame.Active(active);
+            //string active = Console.ReadLine();
+            currentGame.Active();
             //currentGame['G', 'f'] = ' ';   //   player move white alfabetic sign
             //currentGame['H', 'e'] = 'x';
             //currentGame['A', 'f'] = ' ';

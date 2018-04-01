@@ -10,30 +10,30 @@ namespace Project5
     {
         public int m_SizeOfBoardGame;   // need to be private 
         public char[,] m_BoardOfGame;   // need to be private 
-        public DamkaGame(int i_SizeOfBoard)
+        public DamkaGame(int i_SizeOfBoard = 8)
         {
-            m_BoardOfGame = CreatBoard(i_SizeOfBoard);
             m_SizeOfBoardGame = i_SizeOfBoard;
+            m_BoardOfGame = CreatBoard();
         }
         // be private becouse users dont need to know about this method
-        private char[,] CreatBoard(int i_Size = 3)
+        private char[,] CreatBoard()
         {
-            char[,] boardOfGame = new char[i_Size, i_Size];
+            char[,] boardOfGame = new char[m_SizeOfBoardGame, m_SizeOfBoardGame];
             bool rowEven = true;
 
-            for (int i = 0; i < (i_Size - 2) / 2; i++)
+            for (int i = 0; i < (m_SizeOfBoardGame - 2) / 2; i++)
             {
-                for (int j = 0; j < i_Size; j += 2)
+                for (int j = 0; j < m_SizeOfBoardGame; j += 2)
                 {
                     if (rowEven)
                     {
                         boardOfGame[i, j + 1] = 'o';
-                        boardOfGame[(i_Size - 1) - i, j] = 'x';
+                        boardOfGame[(m_SizeOfBoardGame - 1) - i, j] = 'x';
                     }
                     else
                     {
                         boardOfGame[i, j] = 'o';
-                        boardOfGame[(i_Size - 1) - i, j + 1] = 'x';
+                        boardOfGame[(m_SizeOfBoardGame - 1) - i, j + 1] = 'x';
                     }
                 }
                 rowEven = !rowEven;
@@ -76,24 +76,52 @@ namespace Project5
         }
 
         //activ
-        public bool Active(string i_Active)
+        public bool Active()
         {   // must be one exit point //fix that//
-            if(IsLegalActive(i_Active))
+            bool doneActive = false;
+            string active;
+            while ( ! doneActive)
             {
-                this[i_Active[3], i_Active[4]] = this[i_Active[0], i_Active[1]];
-                this[i_Active[0], i_Active[1]] = ' ';
-                return true;// not cry
+                active = Console.ReadLine();
+                if (IsLegalActive(active))
+                {
+                    this[active[3], active[4]] = this[active[0], active[1]];
+                    this[active[0], active[1]] = ' ';
+                    doneActive = true;
+                }
+                else
+                {
+                    Console.WriteLine("wrong activity try another");
+                }
+
             }
-            return false;
+            
+            return doneActive;
         }
 
         // todo
+        // add check that activity in board and that in formt like Af>Be
+        // need to add mhethot that checking that activity is string of letter uper and lower 
         public bool IsLegalActive(string i_Active)
         {
-            return true;
+            bool answer = false;
+            if(i_Active[2] == '>')
+            {
+                // i assmes that string its uper/lower leeter 
+                if ( i_Active[0] - 'A' < m_SizeOfBoardGame && i_Active[1] - 'a' < m_SizeOfBoardGame)
+                {
+                    if (i_Active[3] - 'A' < m_SizeOfBoardGame && i_Active[4] - 'a' < m_SizeOfBoardGame)
+                    {
+                        answer = true;
+                    }
+                }
+            }
+            
+            return answer;
         }
-        // indexr that do A,f like 1,6
 
+
+        // indexr that do A,f like 1,6
         public char this[char i_Row, char i_Col]  // think about this !!
         {
             get
