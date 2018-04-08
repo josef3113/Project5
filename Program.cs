@@ -13,11 +13,10 @@ namespace Project5
 
         public static void Main()
         {
-            DamkaGame currentGame = new DamkaGame(8);
+            DamkaGame currentGame = new DamkaGame(6);
             currentGame.PrintBoardGame();
             Console.WriteLine("insert your active");
-            //string active = Console.ReadLine();
-            //currentGame.Active();
+            currentGame.Active();
             //currentGame['G', 'f'] = ' ';   //   player move white alfabetic sign
             //currentGame['H', 'e'] = 'x';
             //currentGame['A', 'f'] = ' ';
@@ -29,6 +28,14 @@ namespace Project5
             //Console.WriteLine(currentGame['H','e']);
             //Console.WriteLine(currentGame.m_BoardOfGame[7,4]);
             Console.ReadLine();
+
+
+           // string te = "abcd";
+           // te[2] = 'g';
+           // te.ElementAt(2) = 'g';
+
+           //char[] techar= te.ToCharArray();
+           // techar[2] = 'g';
 
 
         }
