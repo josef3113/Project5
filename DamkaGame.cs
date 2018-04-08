@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-// to add function of move 
+
 // and beking 
-// and erase 
+// and set celim 
 namespace Project5
 {
     class BordToGame
@@ -44,32 +44,29 @@ namespace Project5
                 rowEven = !rowEven;
             }
 
-
+            char[][] stringBaord = new char[2 * m_SizeOfBoardGame + 2][];
             StringBuilder lineBuffer = new StringBuilder(5 * m_SizeOfBoardGame);
             lineBuffer.Append("==");
             for (int i = 0; i < m_SizeOfBoardGame; i++)
             {
                 lineBuffer.Append("====");
             }
-
-
-            char[][] stringBaord = new char[2 * m_SizeOfBoardGame + 2][];
-
-            StringBuilder colSign = new StringBuilder();
+            
+            StringBuilder rowOfSignColsUp = new StringBuilder();
             char signRow = 'a', signCol = 'A';
-            colSign.Append(' ');
+            rowOfSignColsUp.Append(' ');
             for (int i = 0; i < m_SizeOfBoardGame; i++)
             {
-                colSign.Append("  " + signCol + " ");
+                rowOfSignColsUp.Append("  " + signCol + " ");
                 signCol++;
             }
-            stringBaord[0] = colSign.ToString().ToCharArray();
-            StringBuilder linesOfBoard = new StringBuilder();
+            stringBaord[0] = rowOfSignColsUp.ToString().ToCharArray();
             for (int i = 1; i < 2 * m_SizeOfBoardGame + 2; i += 2)
             {
                 stringBaord[i] = lineBuffer.ToString().ToCharArray();    // check this 
             }
 
+            StringBuilder linesOfBoard = new StringBuilder();
             int currentLine = 2;
             for (int i = 0; i < m_SizeOfBoardGame; i++)
             {
@@ -96,59 +93,13 @@ namespace Project5
             for (int i = 0; i < 2*m_SizeOfBoardGame +2 ; i ++)
             {
                 Console.WriteLine(m_BoardOfGame[i]);
-
             }
 
         }
 
        
-        //activ
-        public bool Active()
-        {   // must be one exit point //fix that//
-            bool doneActive = false;
-            string active;
-            while (!doneActive)
-            {
-                active = Console.ReadLine();
-                if (IsLegalActive(active))
-                {
-                    this[active[3], active[4]] = this[active[0], active[1]];
-                    this[active[0], active[1]] = ' ';
-                    doneActive = true;
-                }
-                else
-                {
-                    Console.WriteLine("wrong activity try another");
-                }
-
-            }
-            return doneActive;
-
-        }
-
-        // todo
-        // add check that activity in board and that in formt like Af>Be
-        // need to add mhethot that checking that activity is string of letter uper and lower 
-        public bool IsLegalActive(string i_Active)
-        {
-            bool answer = false;
-            if (i_Active[2] == '>')
-            {
-                // i assmes that string its uper/lower leeter 
-                if (i_Active[0] - 'A' < m_SizeOfBoardGame && i_Active[1] - 'a' < m_SizeOfBoardGame)
-                {
-                    if (i_Active[3] - 'A' < m_SizeOfBoardGame && i_Active[4] - 'a' < m_SizeOfBoardGame)
-                    {
-                        answer = true;
-                    }
-                }
-            }
-
-            return answer;
-        }
-
-
-        // indexr that do A,f like 1,6
+        
+        // indexr that acces to BoardToGame [Af]
         public char this[char i_Col, char i_Row]  // think about this !!
         {
             get
@@ -241,3 +192,53 @@ namespace Project5
 
 
 //}
+
+
+
+
+
+//activ == not be here !!
+//public bool Active()
+//{   // must be one exit point //fix that//
+//    bool doneActive = false;
+//    string active;
+//    while (!doneActive)
+//    {
+//        active = Console.ReadLine();
+//        if (IsLegalActive(active))
+//        {
+//            this[active[3], active[4]] = this[active[0], active[1]];
+//            this[active[0], active[1]] = ' ';
+//            doneActive = true;
+//        }
+//        else
+//        {
+//            Console.WriteLine("wrong activity try another");
+//        }
+
+//    }
+//    return doneActive;
+
+//}
+
+//// todo
+//// add check that activity in board and that in formt like Af>Be
+//// need to add mhethot that checking that activity is string of letter uper and lower 
+//public bool IsLegalActive(string i_Active)
+//{
+//    bool answer = false;
+//    if (i_Active[2] == '>')
+//    {
+//        // i assmes that string its uper/lower leeter 
+//        if (i_Active[0] - 'A' < m_SizeOfBoardGame && i_Active[1] - 'a' < m_SizeOfBoardGame)
+//        {
+//            if (i_Active[3] - 'A' < m_SizeOfBoardGame && i_Active[4] - 'a' < m_SizeOfBoardGame)
+//            {
+//                answer = true;
+//            }
+//        }
+//    }
+
+//    return answer;
+//}
+
