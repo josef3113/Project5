@@ -13,7 +13,9 @@ namespace Project5
 
         public static void Main()
         {
-            DamkaGame currentGame = new DamkaGame(6);
+            string str = Console.ReadLine();
+            int size = int.Parse(str);
+            BordToGame currentGame = new BordToGame(size);
             currentGame.PrintBoardGame();
             Console.WriteLine("insert your active");
             currentGame.Active();

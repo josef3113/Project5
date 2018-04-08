@@ -4,14 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+// to add function of move 
+// and beking 
+// and erase 
 namespace Project5
 {
-    class DamkaGame
+    class BordToGame
     {
         
         public int m_SizeOfBoardGame;   // need to be private 
         public char[][] m_BoardOfGame;   // need to be private 
-        public DamkaGame(int i_SizeOfBoard = 8)
+        public BordToGame(int i_SizeOfBoard = 8)
         {
             m_SizeOfBoardGame = i_SizeOfBoard;
             m_BoardOfGame = CreatBoard();
