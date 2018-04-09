@@ -15,20 +15,24 @@ namespace Project5
         {
             
             BordToGame currentGame = new BordToGame(8);
-            currentGame.PrintBoardGame();
+            //currentGame.PrintBoardGame();
 
-            currentGame.FlipToKing("Af");
-            currentGame.FlipToKing("Ba");
+            //currentGame.FlipToKing("Af");
+            //currentGame.FlipToKing("Ba");
 
-            //indexer suport that 
-            currentGame['G', 'f'] = ' ';   //   player move white alfabetic sign
-            currentGame['H', 'e'] = 'x';
-            //currentGame['A', 'f'] = ' ';
-            //currentGame['B', 'e'] = 'x';
-            Console.WriteLine("{0}{0}after changes:{0}{0}",Environment.NewLine);
+            ////indexer suport that 
+            //currentGame['G', 'f'] = ' ';   //   player move white alfabetic sign
+            //currentGame['H', 'e'] = 'x';
 
-            currentGame.PrintBoardGame(); //  print board after changes 
+            //Console.WriteLine("{0}{0}after changes:{0}{0}",Environment.NewLine);
 
+            //currentGame.PrintBoardGame(); //  print board after changes 
+
+            currentGame.creatActivity();
+            currentGame.PrintVeelssOfComputer();
+            currentGame.ChanghVeessl("af", "df");
+            Console.WriteLine("after");
+            currentGame.PrintVeelssOfComputer();
             Console.ReadLine();
 
         }
