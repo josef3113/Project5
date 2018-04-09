@@ -13,7 +13,7 @@ namespace Project5
     class BordToGame
     {
         
-        public int m_SizeOfBoardGame;   // need to be private 
+        public int m_SizeOfBoardGame;   // need to be private  readonly
         public char[][] m_BoardOfGame;   // need to be private 
         public BordToGame(int i_SizeOfBoard = 8)
         {
@@ -95,6 +95,10 @@ namespace Project5
                 Console.WriteLine(m_BoardOfGame[i]);
             }
 
+        }
+        public void FlipToKing(string i_Locat)
+        {
+            this[i_Locat[0],i_Locat[1]] = (this[i_Locat[0],i_Locat[1]] == 'x') ?  'K' :  'U';
         }
 
        
