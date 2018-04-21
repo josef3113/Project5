@@ -13,34 +13,29 @@ namespace Project5
 
         public static void Main()
         {
-            
-            BordToGame currentGame = new BordToGame(8);
-            //currentGame.PrintBoardGame();
 
-            //currentGame.FlipToKing("Af");
-            //currentGame.FlipToKing("Ba");
 
-            ////indexer suport that 
-            //currentGame['G', 'f'] = ' ';   //   player move white alfabetic sign
-            //currentGame['H', 'e'] = 'x';
+            BordToGame stam  = new BordToGame(8);
+            stam.PrintBoardGame();
 
-            //Console.WriteLine("{0}{0}after changes:{0}{0}",Environment.NewLine);
+            stam['f', 'A'] = ' ';
+            stam.PrintBoardGame();
 
-            //currentGame.PrintBoardGame(); //  print board after changes 
-
-            currentGame.creatActivity();
-            currentGame.PrintVeelssOfComputer();
-            currentGame.ChanghVeessl("af", "df");
-            Console.WriteLine("after");
-            currentGame.PrintVeelssOfComputer();
-            Console.ReadLine();
 
         }
 
-        
-        
 
-    };
+        public enum eChoisForSizeGame : byte
+        {
+            
+            SizeIs6 = 1,
+            SizeIs8,
+            SizeIs10
+        }
+
+
+
+            };
 
 
 }
