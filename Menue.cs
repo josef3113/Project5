@@ -6,88 +6,55 @@ using System.Threading.Tasks;
 
 namespace Project5
 {
-    class Menue 
+    class MainMenue 
     {
         
         public List<MethodToDo> m_ListOfMenue = new List<MethodToDo>();
-        public List<Notifyer<int>> m_Functin = new List<Notifyer<int>>();
 
-        public Menue()
+        public void AddMethod(string i_TitleMethod , MetodToPlay i_Function)
         {
-        }
-
-        public void AddMethod(string i_TitleMethod , Notifyer<int> i_Function)
-        {
-            MethodToDo insert = new MethodToDo(i_TitleMethod, m_ListOfMenue.Count +1);
+            MethodToDo insert = new MethodToDo(i_TitleMethod, m_ListOfMenue.Count +1, i_Function);
             m_ListOfMenue.Add(insert);
-            insert.m_Method += i_Function;
         }
 
         public void ShowMenue()
         {
-            int indx = 1;
-            foreach (MethodToDo item in m_ListOfMenue)
-            {
-                Console.WriteLine("{0}.{1}",indx++, item.Title);
-            }
-
-            Console.WriteLine("insert your choich");
-
+            bool quit = false;
             int userChoich;
-            while (!int.TryParse(Console.ReadLine(), out userChoich))
-            {
-                Console.WriteLine("wrong input try again");
-            }
 
-
-            foreach (MethodToDo item in m_ListOfMenue)
+            while (!quit)
             {
-                if (item.OptionNum == userChoich)
+                Console.WriteLine("0.Exit");
+                foreach (MethodToDo item in m_ListOfMenue)
                 {
-                    item.OnSelected();
-                    break;
+                    Console.WriteLine("{0}.{1}", item.OptionNum, item.Title);
                 }
+
+                Console.WriteLine("insert your choich");
+
+                while (!int.TryParse(Console.ReadLine(), out userChoich))
+                {
+                    Console.WriteLine("wrong input try again");
+                }
+
+                if(userChoich == 0)
+                {
+                    quit = true;
+                }
+                else
+                {
+                    foreach (MethodToDo item in m_ListOfMenue)
+                    {
+                        if (item.OptionNum == userChoich)
+                        {
+                            item.OnSelected();
+                            break;
+                        }
+                    }
+
+                }
+
             }
-
         }
-
-        public void Print()
-        {
-            Console.WriteLine("hello");
-        }
-
-        private void Option(int i_Selected)
-        {
-            m_Functin[i_Selected].Invoke();
-            //switch (i_Selected)
-            //{
-            //    case 1:
-            //        Console.WriteLine("1");
-            //        break;
-            //    case 2:
-            //        Console.WriteLine("2");
-            //        break;
-            //        defult:
-            //        Console.WriteLine("wrong input try again");
-            //        break;
-
-
-            //}
-        }
-
-
-        public void Print(string i_Toprint)
-        {
-            int num;
-            
-            Console.WriteLine("this method in player insert num ");
-            
-            num = int.Parse( Console.ReadLine());
-            Console.WriteLine(num);
-            Console.WriteLine(i_Toprint);
-        }
-
-       
-
     }
 }

@@ -8,12 +8,13 @@ namespace Project5
 {
     class Garage
     {
-        Menue menue = new Menue();
+        MainMenue menue = new MainMenue();
 
         public Garage()
         {
-            menue.AddMethod("clos garag",CloseGarage);
+            menue.AddMethod("clos garag", CloseGarage);
             menue.AddMethod("insert car", InsertCar);
+            menue.AddMethod("print car", PrintAllCar);
         }
 
         public void OpenGrage()
@@ -30,6 +31,11 @@ namespace Project5
         public void CloseGarage()
         {
             Console.WriteLine("garage closing");
+        }
+
+        public void PrintAllCar()
+        {
+            Console.WriteLine("all car in garage");
         }
     }
 }

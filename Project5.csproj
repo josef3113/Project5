@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Garage.cs" />
     <Compile Include="Menue.cs" />
+    <Compile Include="MenueItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="MethodToDo.cs" />
   </ItemGroup>
