@@ -8,8 +8,8 @@ namespace Project5
 {
     class MainMenue 
     {
-        
-        public List<MethodToDo> m_ListOfMenue = new List<MethodToDo>();
+        public string Title { get; set; }
+        public List<IMenueItem> m_ListOfMenue = new List<IMenueItem>();
 
         public void AddMethod(string i_TitleMethod , MetodToPlay i_Function)
         {
@@ -17,6 +17,16 @@ namespace Project5
             m_ListOfMenue.Add(insert);
         }
 
+        public void AddSubMenue(SubMenue i_SubMenueToAdd)
+        {
+            i_SubMenueToAdd.OptionNum = m_ListOfMenue.Count + 1;
+            m_ListOfMenue.Add(i_SubMenueToAdd);
+        }
+
+        public virtual void ShowBack()
+        {
+            Console.WriteLine("0.Exit");
+        }
         public void ShowMenue()
         {
             bool quit = false;
@@ -24,8 +34,8 @@ namespace Project5
 
             while (!quit)
             {
-                Console.WriteLine("0.Exit");
-                foreach (MethodToDo item in m_ListOfMenue)
+                ShowBack();
+                foreach (IMenueItem item in m_ListOfMenue)
                 {
                     Console.WriteLine("{0}.{1}", item.OptionNum, item.Title);
                 }
@@ -43,7 +53,7 @@ namespace Project5
                 }
                 else
                 {
-                    foreach (MethodToDo item in m_ListOfMenue)
+                    foreach (IMenueItem item in m_ListOfMenue)
                     {
                         if (item.OptionNum == userChoich)
                         {

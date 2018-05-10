@@ -36,10 +36,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Garage.cs" />
-    <Compile Include="Menue.cs" />
+    <Compile Include="MainMenue.cs" />
     <Compile Include="MenueItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="MethodToDo.cs" />
+    <Compile Include="SubMenue.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

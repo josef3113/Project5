@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Project5
 {
-    class MenueItem
+    interface  IMenueItem
     {
+        void OnSelected();
+        int OptionNum { get; }
+        string Title { get; }
 
     }
 }

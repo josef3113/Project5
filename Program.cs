@@ -7,26 +7,9 @@ using System.Threading.Tasks;
 
 namespace Project5
 {
-        delegate void myMethod(double res);
+       
     class Program
     {
-
-        public static void DoubleIt(double todoubleThis)
-        {
-            double res = todoubleThis * todoubleThis;
-
-            Console.WriteLine(res);
-
-        }
-
-        public static void Add2(double add2)
-        {
-            double res = add2 + 2;
-            Console.WriteLine(res);
-
-        }
-
-
         public static void Main()
         {
             Console.WriteLine("hello");

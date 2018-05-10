@@ -15,6 +15,17 @@ namespace Project5
             menue.AddMethod("clos garag", CloseGarage);
             menue.AddMethod("insert car", InsertCar);
             menue.AddMethod("print car", PrintAllCar);
+            SubMenue subMenue = new SubMenue("sub Menue");
+            subMenue.AddMethod("clos garag from subMenue", CloseGarage);
+
+            SubMenue subsubMenue = new SubMenue("subsub Menue");
+            subsubMenue.AddMethod("print car from sub sub", PrintAllCar);
+
+            subMenue.AddSubMenue(subsubMenue);
+
+
+
+            menue.AddSubMenue(subMenue);
         }
 
         public void OpenGrage()

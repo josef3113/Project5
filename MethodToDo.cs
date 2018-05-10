@@ -8,9 +8,10 @@ namespace Project5
 {
     public delegate void MetodToPlay();
    
-    class MethodToDo
+    class MethodToDo : IMenueItem
     {
         public event MetodToPlay m_Method;
+
         public int OptionNum { get; set; }
         public string Title { get; set; }
 
@@ -25,8 +26,8 @@ namespace Project5
         {
             if (m_Method != null)
             {
-                m_Method();
-               // m_Method.Invoke();
+                //m_Method();  // book think about this 
+                m_Method.Invoke();
             }
 
         }
