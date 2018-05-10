@@ -13,29 +13,17 @@ namespace Project5
 
         public static void Main()
         {
+            Console.WriteLine("hello");
+            Garage myGarage = new Garage();
+            myGarage.OpenGrage();
 
-
-            BordToGame stam  = new BordToGame(8);
-            stam.PrintBoardGame();
-
-            stam['f', 'A'] = ' ';
-            stam.PrintBoardGame();
-
-
+            Console.ReadLine();
         }
-
-
-        public enum eChoisForSizeGame : byte
-        {
-            
-            SizeIs6 = 1,
-            SizeIs8,
-            SizeIs10
-        }
+       
 
 
 
-            };
+    };
 
 
 }

@@ -35,9 +35,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DamkaGame.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Garage.cs" />
+    <Compile Include="Menue.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="MethodToDo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
