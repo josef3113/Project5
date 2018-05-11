@@ -8,7 +8,7 @@ namespace Project5
 {
     public delegate void MetodToPlay();
 
-    class MainMenue 
+    public class MainMenue 
     {
         public string Title { get; private set; }
 
@@ -31,12 +31,12 @@ namespace Project5
             r_ListOfMenue.Add(i_SubMenueToAdd);
         }
 
-        protected virtual void ShowBack()
+        protected virtual void showBack()
         {
             Console.WriteLine("0.Exit");
         }
 
-        private void ShowOption()
+        private void showOption()
         {
             foreach (ISubMenueItem item in r_ListOfMenue)
             {
@@ -52,8 +52,8 @@ namespace Project5
             while (!quit)
             {
                 Console.WriteLine(Title);
-                ShowBack();
-                ShowOption();
+                showBack();
+                showOption();
                 Console.WriteLine("insert your choich");
 
                 while (!int.TryParse(Console.ReadLine(), out userChoich))

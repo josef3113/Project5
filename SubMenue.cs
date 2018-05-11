@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project5
 {
-    class SubMenue : MainMenue , ISubMenueItem
+    public class SubMenue : MainMenue , ISubMenueItem
     {
         public int SerialNumber { get;internal set; }
 
@@ -14,7 +14,7 @@ namespace Project5
         {
         }
 
-        protected override void ShowBack()
+        protected override void showBack()
         {
             Console.WriteLine("0.Back");
         }
