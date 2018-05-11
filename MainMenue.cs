@@ -7,14 +7,21 @@ using System.Threading.Tasks;
 namespace Project5
 {
     public delegate void MetodToPlay();
+
     class MainMenue 
     {
-        public string Title { get; set; }
-        public List<IMenueItem> m_ListOfMenue = new List<IMenueItem>();
+        public string Title { get; private set; }
 
-        public void AddMethod(string i_TitleMethod , MetodToPlay i_Function)
+        public List<ISubMenueItem> m_ListOfMenue = new List<ISubMenueItem>();
+
+        public MainMenue(string i_TitleOfMenue)
         {
-            MethodToDo insert = new MethodToDo(i_TitleMethod, m_ListOfMenue.Count + 1, i_Function);
+            Title = i_TitleOfMenue;
+        }
+
+        public void AddMethod(string i_TitleMethod , MetodToPlay i_MethodToPlay)
+        {
+            MethodToDo insert = new MethodToDo(i_TitleMethod, m_ListOfMenue.Count + 1, i_MethodToPlay);
             m_ListOfMenue.Add(insert);
         }
 
@@ -28,6 +35,15 @@ namespace Project5
         {
             Console.WriteLine("0.Exit");
         }
+
+        public void ShowOption()
+        {
+            foreach (ISubMenueItem item in m_ListOfMenue)
+            {
+                Console.WriteLine("{0}.{1}", item.OptionNum, item.Title);
+            }
+        }
+
         public void ShowMenue()
         {
             bool quit = false;
@@ -35,12 +51,9 @@ namespace Project5
 
             while (!quit)
             {
+                Console.WriteLine(Title);
                 ShowBack();
-                foreach (IMenueItem item in m_ListOfMenue)
-                {
-                    Console.WriteLine("{0}.{1}", item.OptionNum, item.Title);
-                }
-
+                ShowOption();
                 Console.WriteLine("insert your choich");
 
                 while (!int.TryParse(Console.ReadLine(), out userChoich))
@@ -48,9 +61,10 @@ namespace Project5
                     Console.WriteLine("wrong input try again");
                 }
 
-                if(userChoich == 0)
+                if (userChoich == 0)
                 {
                     quit = true;
+                    Console.Clear(); // book think about the right place for that
                 }
                 else
                 {
@@ -60,11 +74,10 @@ namespace Project5
                     }
                     else
                     {
+                        Console.Clear(); // book think about the right place for that
                         m_ListOfMenue[userChoich - 1].OnSelected();
                     }
-
                 }
-
             }
         }
     }

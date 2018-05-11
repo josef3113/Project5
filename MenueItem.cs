@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Project5
 {
-    interface  IMenueItem
+    interface  ISubMenueItem
     {
         void OnSelected();
         int OptionNum { get; }
         string Title { get; }
-
     }
 }

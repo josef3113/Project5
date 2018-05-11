@@ -8,7 +8,7 @@ namespace Project5
 {
     class Garage
     {
-        MainMenue menue = new MainMenue();
+        MainMenue menue = new MainMenue("Garage Menue");
 
         public Garage()
         {

@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace Project5
 {
-    class SubMenue : MainMenue , IMenueItem
+    class SubMenue : MainMenue , ISubMenueItem
     {
         public int OptionNum { get; set; }
 
-        public SubMenue(string i_Title)
+        public SubMenue(string i_Title) : base(i_Title)
         {
-            Title = i_Title;
         }
+
         public override void ShowBack()
         {
             Console.WriteLine("0.Back");
         }
+
         public void OnSelected()
         {
             ShowMenue();
