@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project5
 {
+    public delegate void MetodToPlay();
     class MainMenue 
     {
         public string Title { get; set; }
@@ -13,7 +14,7 @@ namespace Project5
 
         public void AddMethod(string i_TitleMethod , MetodToPlay i_Function)
         {
-            MethodToDo insert = new MethodToDo(i_TitleMethod, m_ListOfMenue.Count +1, i_Function);
+            MethodToDo insert = new MethodToDo(i_TitleMethod, m_ListOfMenue.Count + 1, i_Function);
             m_ListOfMenue.Add(insert);
         }
 
@@ -53,13 +54,13 @@ namespace Project5
                 }
                 else
                 {
-                    foreach (IMenueItem item in m_ListOfMenue)
+                    if(userChoich > m_ListOfMenue.Count)
                     {
-                        if (item.OptionNum == userChoich)
-                        {
-                            item.OnSelected();
-                            break;
-                        }
+                        Console.WriteLine("wrong input");
+                    }
+                    else
+                    {
+                        m_ListOfMenue[userChoich - 1].OnSelected();
                     }
 
                 }

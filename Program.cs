@@ -19,7 +19,7 @@ namespace Project5
 
 
 
-            Console.ReadLine();
+          //  Console.ReadLine();
         }
 
 

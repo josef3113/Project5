@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Project5
 {
-    public delegate void MetodToPlay();
+    
    
     class MethodToDo : IMenueItem
     {
-        public event MetodToPlay m_Method;
+        private MetodToPlay m_Method;
 
         public int OptionNum { get; set; }
-        public string Title { get; set; }
+        public string Title { get; private set; }
 
         public MethodToDo(string i_Title, int i_OptionNum, MetodToPlay i_Function)
         {
