@@ -9,7 +9,7 @@ namespace Project5
     interface  ISubMenueItem
     {
         void OnSelected();
-        int OptionNum { get; }
+        int SerialNumber { get; }
         string Title { get; }
     }
 }

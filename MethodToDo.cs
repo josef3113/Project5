@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Project5
 {
-    class MethodToDo : ISubMenueItem
+    internal class MethodToDo : ISubMenueItem
     {
         private MetodToPlay m_Method;
 
-        public int OptionNum { get; set; }
+        public int SerialNumber { get; set; }
 
         public string Title { get;private set; }
 
-        public MethodToDo(string i_Title, int i_OptionNum, MetodToPlay i_Function)
+        public MethodToDo(string i_Title, int i_SerialNumber, MetodToPlay i_Function)
         {
             m_Method = i_Function;
             Title = i_Title;
-            OptionNum = i_OptionNum;
+            SerialNumber = i_SerialNumber;
         }
 
         public void OnSelected()

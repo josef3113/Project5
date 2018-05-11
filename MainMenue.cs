@@ -12,7 +12,7 @@ namespace Project5
     {
         public string Title { get; private set; }
 
-        public List<ISubMenueItem> m_ListOfMenue = new List<ISubMenueItem>();
+        private readonly List<ISubMenueItem> r_ListOfMenue = new List<ISubMenueItem>();
 
         public MainMenue(string i_TitleOfMenue)
         {
@@ -21,26 +21,26 @@ namespace Project5
 
         public void AddMethod(string i_TitleMethod , MetodToPlay i_MethodToPlay)
         {
-            MethodToDo insert = new MethodToDo(i_TitleMethod, m_ListOfMenue.Count + 1, i_MethodToPlay);
-            m_ListOfMenue.Add(insert);
+            MethodToDo insert = new MethodToDo(i_TitleMethod, r_ListOfMenue.Count + 1, i_MethodToPlay);
+            r_ListOfMenue.Add(insert);
         }
 
         public void AddSubMenue(SubMenue i_SubMenueToAdd)
         {
-            i_SubMenueToAdd.OptionNum = m_ListOfMenue.Count + 1;
-            m_ListOfMenue.Add(i_SubMenueToAdd);
+            i_SubMenueToAdd.SerialNumber = r_ListOfMenue.Count + 1;
+            r_ListOfMenue.Add(i_SubMenueToAdd);
         }
 
-        public virtual void ShowBack()
+        protected virtual void ShowBack()
         {
             Console.WriteLine("0.Exit");
         }
 
-        public void ShowOption()
+        private void ShowOption()
         {
-            foreach (ISubMenueItem item in m_ListOfMenue)
+            foreach (ISubMenueItem item in r_ListOfMenue)
             {
-                Console.WriteLine("{0}.{1}", item.OptionNum, item.Title);
+                Console.WriteLine("{0}.{1}", item.SerialNumber, item.Title);
             }
         }
 
@@ -68,14 +68,14 @@ namespace Project5
                 }
                 else
                 {
-                    if(userChoich > m_ListOfMenue.Count)
+                    if(userChoich > r_ListOfMenue.Count)
                     {
                         Console.WriteLine("wrong input");
                     }
                     else
                     {
                         Console.Clear(); // book think about the right place for that
-                        m_ListOfMenue[userChoich - 1].OnSelected();
+                        r_ListOfMenue[userChoich - 1].OnSelected();
                     }
                 }
             }

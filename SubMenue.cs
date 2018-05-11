@@ -8,13 +8,13 @@ namespace Project5
 {
     class SubMenue : MainMenue , ISubMenueItem
     {
-        public int OptionNum { get; set; }
+        public int SerialNumber { get;internal set; }
 
         public SubMenue(string i_Title) : base(i_Title)
         {
         }
 
-        public override void ShowBack()
+        protected override void ShowBack()
         {
             Console.WriteLine("0.Back");
         }

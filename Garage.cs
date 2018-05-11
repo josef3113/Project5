@@ -12,6 +12,7 @@ namespace Project5
 
         public Garage()
         {
+
             menue.AddMethod("clos garag", CloseGarage);
             menue.AddMethod("insert car", InsertCar);
             menue.AddMethod("print car", PrintAllCar);
@@ -26,6 +27,8 @@ namespace Project5
 
 
             menue.AddSubMenue(subMenue);
+
+            
         }
 
         public void OpenGrage()
